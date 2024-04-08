@@ -2,52 +2,77 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(61, 60, 60);
-    height: 100vh;
+    background-color: rgb(235, 235, 235);
+    height: 100vh; /* align horizontalement et verticalement au milieu*/
     margin: 0;
     font-family: Arial, sans-serif;
+    background: rgb(143,144,22);
+    background: -moz-radial-gradient(circle, rgba(143,144,22,1) 0%, rgba(23,103,20,1) 25%, rgba(17,108,89,1) 50%, rgba(14,44,97,1) 75%, rgba(8,38,79,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(143,144,22,1) 0%, rgba(23,103,20,1) 25%, rgba(17,108,89,1) 50%, rgba(14,44,97,1) 75%, rgba(8,38,79,1) 100%);
+    background: radial-gradient(circle, rgba(143,144,22,1) 0%, rgba(23,103,20,1) 25%, rgba(17,108,89,1) 50%, rgba(14,44,97,1) 75%, rgba(8,38,79,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8f9016",endColorstr="#08264f",GradientType=1); 
 }
 
-#calculator-form {
+.calculator-form {
     display: flex;
-    width: 500px;
-    background-color: rgba(255, 166, 0, 0.486);
+    width: 310px;
+    background-color: rgb(53, 53, 50);
     border-radius: 20px;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 #display {
+    margin-top: 10px;
     height: 100px;
     border-radius: 20px;
-    margin-bottom: 10px;
-    background-color: rgb(255, 244, 244);
+    border: 0;
+    margin-bottom: 20px;
+    color: black;
+    background-color: rgb(255, 255, 255);
     text-align: right;
     font-size: 24px;
 }
 
-.buttons {
+.pad {
     display: flex;
-    /* flex-wrap: wrap; */
     flex-wrap: wrap;
-    border-radius: 50%;
     justify-content: center;
     width: 250px;
 }
 
-.numpad {
+.operators {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 200px;
 }
 
+.operators button {
+    background-color: rgb(255, 166, 1);
+}
+.numpad {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 200px;
+}
+
+.del button{
+    background-color: rgb(255, 0, 0);
+}
+
 button {
+    background-color: rgb(145, 141, 141);
+    color: white;
     width: 50px;
     height: 50px;
     margin: 5px;
     font-size: 20px;
-    border-radius: 5px;
+    border: 0;
+    border-radius: 50%;
 }
 
 button:hover {

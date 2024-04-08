@@ -9,7 +9,7 @@ To use this calculator, follow these steps:
 1. Download or clone the repository to your local machine.
 2. Open the `index.html` file in your preferred web browser.
 3. Use the buttons on the calculator interface to perform calculations.
-
+(you can directly use the textbox if you don't want to click on the buttons below)
 (P.S later i will deploy it so you would just have to click the link to use it)
 
 ## Project Structure

@@ -13,7 +13,7 @@
             <div class="card1">
                 <input type="text" id="input" placeholder="What's your username?">
                 <button type="button" onClick="display()" id="btn">Valid</button>
-                <h3 class="pseudo">Waiting for your username</h3> 
+                <h3 class="valid">Waiting for your username</h3> 
             </div>
             <div class="card2">
                 <label type="number" class="count" style="align-self: center;">0</label>  <br>
@@ -21,6 +21,13 @@
                 <button type="button" class="sub">-</button>
                 <button type="button" class="reset">R</button>
             </div>
+            <div class="card1">
+                <input type="text" class="valid_num">
+                <button type="button" onClick="guess()" class="guess_number">Guess</button>
+                <h3 class="nb_guess">enter a number beetween 1 and 100</h3>
+                <p class="try_count">try number: </p>
+            </div>
+        </div>
         </div>
         <script src="script.js" async defer></script>
     </body>

@@ -4,6 +4,7 @@ body {
     align-items: flex-start;
     height: 100vh;
     margin: 0;
+    background-attachment: fixed;
     font-family: Arial, sans-serif;
     background: rgb(253,255,0);
     background: -moz-linear-gradient(0deg, rgba(253,255,0,1) 0%, rgba(9,255,0,1) 25%, rgba(0,92,255,1) 75%, rgba(8,38,79,1) 100%);

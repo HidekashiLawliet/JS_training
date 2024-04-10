@@ -44,7 +44,6 @@ function add_count() {
     count.innerHTML = number;
 }
 
-
 reset = document.querySelector(".reset").addEventListener("click", function () {
     reset_count();
 });
@@ -69,11 +68,7 @@ let count_nbr = 0;
 console.log(num_guess);
 
 
-guess_nbr.addEventListener("click", function () {
-    guess_number();
-});
-
-function guess_number() {
+guess_nbr.onclick = function () {
     if (valid.value == num_guess) {
         nb_guess.innerHTML = "You got it!";
         try_count.innerHTML += count_nbr;
@@ -85,6 +80,73 @@ function guess_number() {
     } 
 }
 
+//---------------------------
+
+// check box
+
+let RememberMe = document.querySelector(".RememberMe");
+let visaBtn = document.querySelector(".visaBtn");
+let masterCardBtn = document.querySelector(".MasterCardBtn");
+let paypalBtn = document.querySelector(".PayPalBtn");
+let payment_btn = document.querySelector(".payment_btn");
+let payment_methode = document.querySelector(".payment_methode");
+let remember_me = document.querySelector(".remember_me");
+
+payment_btn.onclick = function () {
+    if (RememberMe.checked) {
+        remember_me.innerHTML = "You will be remembered";
+        console.log("checked");
+    }
+    if(visaBtn.checked) {
+        console.log('ENCULE TON CACTUS')
+        payment_methode.innerHTML = "";
+        payment_methode.innerHTML += "Visa";
+    } else if(masterCardBtn.checked) {
+        payment_methode.innerHTML = "";
+        payment_methode.innerHTML += "MasterCard";
+    } else {
+        payment_methode.innerHTML = "";
+        payment_methode.innerHTML += "Paypal";
+    }
+}
+
+//  ternary operator
+let age = 21;
+let age_message = age >= 18 ? "You are old enough to buy a car" : "You are not old enough to buy a car";
+console.log(age_message);
+//---------------------------
+
+
+// switch case
+
+let day = 3;
+
+switch (day) {
+    case 1:
+        console.log("Monday");
+        break;
+    case 2:
+        console.log("Tuesday");
+        break;
+    case 3:
+        console.log("Wednesday");
+        break;
+    case 4:
+        console.log("Thursday");
+        break;
+    case 5:
+        console.log("Friday");
+        break;
+    case 6:
+        console.log("Saturday");
+        break;
+    case 7:
+        console.log("Sunday");
+        break;
+    default:
+        console.log("Invalid day");
+        break;
+}
 
 
 //---------------------------

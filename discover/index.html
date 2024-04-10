@@ -27,7 +27,23 @@
                 <h3 class="nb_guess">enter a number beetween 1 and 100</h3>
                 <p class="try_count">try number: </p>
             </div>
-        </div>
+            <div class="card1">
+                <input type="checkbox" class="RememberMe">
+                <label for="RememberMe">Remember me</label><br><br>
+
+                <input type="radio" class="visaBtn" name="card">
+                <label for="visaBtn">Visa</label><br>
+                
+                <input type="radio" class="MasterCardBtn" name="card">
+                <label for="MasterCardBtn">MasterCard</label><br>
+                
+                <input type="radio" class="PayPalBtn" name="card">
+                <label for="PayPalBtn">Paypal</label><br>
+
+                <button type="button" onClick="pay()" class="payment_btn">Checkout</button> 
+                <h3 class="payment_methode">Payment method: </h3>
+                <h3 class="remember_me"></h3
+            </div>
         </div>
         <script src="script.js" async defer></script>
     </body>

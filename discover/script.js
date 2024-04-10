@@ -144,9 +144,63 @@ switch (day) {
         console.log("Sunday");
         break;
     default:
-        console.log("Invalid day");
+        console.log(`${day} is not a day of the week.`);
         break;
 }
 
+let test_score = 76;
+let grade = '';
 
+// check if the case == true and if it true then the grade will be the letter grade
+switch(true){
+    case test_score >= 90:
+        grade = 'A';
+        break;
+    case test_score >= 80:
+        grade = 'B';
+        break;
+    case test_score >= 70:
+        grade = 'C';
+        break;
+    case test_score >= 60:
+        grade = 'D';
+        break;
+    case test_score >= 50:
+        grade = 'E';
+        break;
+    default:
+        grade = 'F';
+        break;
+}
 //---------------------------
+
+//strings methode 
+
+/// too much string methode can be used
+// .trim -> enleve les espace comme un .join
+// .toUpperCase -> en majuscule
+// .toLowerCase -> en minuscule
+// .repeat(x) -> x fois la chaine
+// .startWith -> commence par la lettre demander et return un bool
+// .endsWith -> finie par la lettre demander et return un bool
+// .include comme startWith et endWith mais pourtout dans la string
+// .remplaceAll("-", "") remplace toutes les occurences du charactere 1 par le charactere 2
+// .padStart(x, character) -> ajoute des characteres en debut de la string jusqu'a obtenir une string de la taille de X
+// .padEnd(x, character) -> ajoute des characteres en fin de la string jusqu'a obtenir une string de la taille de X
+// charAt prend le charcatere x de la variable et .slice separe apres le charcatere x
+
+
+let pseudonyme = "hidekashi";
+console.log(pseudonyme.charAt(0).toUpperCase() + pseudonyme.slice(4));
+
+// ----------------------------------
+
+
+// string slicing
+
+const full_name = "Hidekashi Lawliet"
+
+let first_name = full_name.slice(0, full_name.indexOf(" "));
+let last_name = full_name.slice(full_name.indexOf(" ") + 1);
+console.log(first_name);
+console.log(last_name);

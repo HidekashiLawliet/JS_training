@@ -1,3 +1,30 @@
+//---- LES FONCTIONS -----
+function NameOfFunction(name, age) {
+    console.log(`Happy Birthday ${name}! You are ${age} years old`);
+}
+
+// une fonction doit etre appeler pour l'utiliser
+NameOfFunction("John", 25);
+
+//----------------------
+
+// check email address
+function IsValidEmail(email) {
+    
+    if (email.includes("@") && email.includes(".")) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+console.log(IsValidEmail("john@gmail.com"));
+console.log(IsValidEmail("johngmail.com"));
+
+//-------------------
+
+
+// display the name enter in the txt box
 const doc = document.getElementById("body");
 let pseudo = document.querySelector(".pseudo");
 let username = document.querySelector(".username");
@@ -7,7 +34,6 @@ let sub = document.querySelector(".sub");
 let reset = document.querySelector(".reset");
 let number = 0;
 
-// display the name enter in the txt box
 function display() {
     if (input.value === "") {
         alert("Please enter your username first");
@@ -70,6 +96,7 @@ console.log(num_guess);
 
 guess_nbr.onclick = function () {
     if (valid.value == num_guess) {
+        count_nbr += 1;
         nb_guess.innerHTML = "You got it!";
         try_count.innerHTML += count_nbr;
         console.log("You got it!");
@@ -202,5 +229,55 @@ const full_name = "Hidekashi Lawliet"
 
 let first_name = full_name.slice(0, full_name.indexOf(" "));
 let last_name = full_name.slice(full_name.indexOf(" ") + 1);
-console.log(first_name);
-console.log(last_name);
+
+//-----------------------------------
+
+// methode chaining
+
+//no methode chaining
+// let username2 = window.prompt("Enter your username");
+
+// username2 = username2.trim()
+// let letter = username2.charAt(0)
+// letter = letter.toUpperCase()
+
+// let otherChars = username2.slice(1);
+// otherChars = otherChars.toLowerCase();
+
+// console.log(letter + otherChars);
+
+
+//methode chaining
+
+let username3 = window.prompt("Enter your username");
+
+username3 = username3.trim().charAt(0).toUpperCase() + username3.trim().slice(1).toLowerCase();
+
+console.log(username3);
+//----------------------------------
+
+// while loop / for loop
+
+// let int = 0;
+
+// while (int < 11) {
+//     console.log(int);
+//     int += 1;
+// }
+
+for (int = 0; int <= 10; int += 1) {
+    console.log(int);
+}
+
+// variable scope 
+// a declared variable as eather a local or a global scope
+// if it's declared in a global scope else it's a local scope
+function test1() {
+    const localVar =  0;
+    console.log(localVar);
+}
+function test1() {
+    console.log(a);
+}
+
+// 

@@ -364,4 +364,97 @@ function display(number) {
     console.log(number);
 }
 
-// .map() = 
+// .map() = accept a callback and applies that function to each element of the array then return a new array, use to keep the first array untouched
+console.log("-----------map-----------")
+
+const numbr = [1, 2, 3, 4, 5, 6];
+const squared = numbr.map(squrd); //declare a new array to stock the result of .map "squared" in this case
+
+console.log(squared);
+
+function squrd(number) {
+    return Math.pow(number, 2);
+}
+
+const students = ['spongbob', 'johndoe', 'patrick', 'Kenn', 'keanu reeves'];
+const mapUpperStd = students.map(UpperStd);
+console.log(mapUpperStd);
+function UpperStd(str) {
+    return str.toUpperCase();
+}
+//----------------------------
+
+// .filter() = create new array by filtering the elements of the original array
+                // take every value that is equal to true to stock them
+
+let EvenNumber = numbr.filter(isEven);
+
+console.log(EvenNumber);
+function isEven(numbr) {
+    return numbr % 2 === 0; // so it's equal to true
+}
+
+const ages = [21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
+
+console.log(ages.filter(NottooOld));
+
+function NottooOld(nbr) {
+    return nbr <= 25;
+}
+
+// .reduce() = reduce the elements of an array into a single value
+
+let prices = [10, 20, 30, 40, 50];
+let totalPrice = prices.reduce(addPrice);
+
+console.log(totalPrice.toFixed(2));
+
+function addPrice(total, price) {
+    return total + price;
+}
+
+// object = structure en C sauf qu'on attribue directement des valeurs
+
+let person = {
+    name: "hidekashi",
+    age: 21,
+    job: "programmer"
+}
+
+person.name = "temp";
+
+console.log(person);
+console.log(person.name);
+
+//----------------------------
+
+console.log("----------------------------");
+// THIS reference to object where "this" is used
+
+const person1 = {
+    name: "hidekashi",
+    age: 21,
+    job: "programmer",
+    sayHello: function() {console.log(`hello! my name is ${this.name}`)} // c'est quoi cette idiotie a la noix serieux
+}
+
+person1.sayHello();
+
+//----------------------------
+
+
+// Constructor used to create generic structure 
+        // for that need to declare "new" after the equal sign
+
+function car(brand, year, color) {
+    this.brand = brand;
+    this.year = year;
+    this.color = color;
+    this.drive = function() {console.log(`you drive a ${this.brand}`)}
+}
+
+const car1 = new car("audi", 2019, "red");
+console.log(car1);
+car1.drive();
+
+//TODO:Reprendre a la parti class  https://youtu.be/lfmg-EJ8gm4?t=19108

@@ -280,4 +280,88 @@ function test1() {
     console.log(a);
 }
 
-// 
+// ------------------
+
+// array
+let fruits = ["apple", "cherry", "banana", "grape", "orange", "mango"];
+console.log('---------------------------------------')
+// .sort, sort array in alphabetic order
+console.log(fruits.sort());
+// .reverse, sort array in reverse alphabetic order
+console.log(fruits.sort().reverse());
+console.log('---------------------------------------')
+console.log(fruits.length)
+console.log(fruits.indexOf("apple"))
+// --------------------
+
+// spread operator (...)= expend array or string into separate elements
+// can be also use to accept an infinite number of arguments
+let Num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let max = Math.max(...Num);
+console.log(max);
+//
+
+// rest parameters = the opposite of spread operator
+function OpenFridge(...args) {
+    console.log(args);
+}
+
+const food1 = "apple";
+let food2 = "pizza";
+let food3 = "burger";
+let food4 = "chicken";
+
+OpenFridge(food1, food2, food3, food4);
+
+//----------------------------
+
+// password generator
+
+function generatePassword() {
+    let pass = ''
+    const passLenght = 17;
+    const lowerCaseChars = 'abcdefghijklmnopqrstuvwxyz';
+    const upperCaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const numbersChars = '0123456789';
+    const specialChars = '!@#$%^&*()_+{}|:"<>?,./;';
+    let allowedChars = lowerCaseChars + upperCaseChars + numbersChars + specialChars;
+
+    for(let i = 0; i <= passLenght; i++) {
+        const radomIndex = Math.floor(Math.random() * allowedChars.length);
+        pass += allowedChars[radomIndex];
+    }
+    console.log(pass);
+    return pass;
+}
+const passLenght = 12;
+
+generatePassword();
+
+//----------------------------
+
+// callback = function pass as an arg to one other function
+
+hello(GB);
+function hello(callback) {
+    console.log("hello");
+    callback();
+}
+
+function GB() {
+    console.log("good bye");
+}
+
+//----------------------------
+
+
+// forEach() = iterate over the elements of the array 
+
+let numbers = [1, 2, 3, 4, 5, 6]
+
+numbers.forEach(display);
+
+function display(number) {
+    console.log(number);
+}
+
+// .map() = 

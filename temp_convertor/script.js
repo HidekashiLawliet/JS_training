@@ -11,11 +11,9 @@ btn.onclick = function () {
 
 function convertTemp() {
     if (CtF.checked) {
-        console.log("prout");
         convertFarToCel(temp);
     }
     if (FtC.checked) {
-        console.log("prout");
         convertCelToFar(temp);
     }
 

@@ -780,6 +780,9 @@ console.log("----------------------------");
 
 // * Date objects   Date(year, month, day, hours, minutes, seconds, millisecondsa)
 
-let date = new Date();
+let date = new Date(); // * if empty get the date when the script is run, else get the date given as param
+let year = date.getFullYear();
+
 
 console.log(date);
+console.log(year);

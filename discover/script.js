@@ -1,4 +1,20 @@
-//---- LES FONCTIONS -----
+/*
+
+todo Mark commment todo
+
+? interogation
+
+! warning
+
+* basic comment
+
+//?  the double slash underline the line
+
+*/
+
+
+
+// ! ---- LES FONCTIONS -----
 function NameOfFunction(name, age) {
     console.log(`Happy Birthday ${name}! You are ${age} years old`);
 }
@@ -429,6 +445,7 @@ console.log(person.name);
 //----------------------------
 
 console.log("----------------------------");
+
 // THIS reference to object where "this" is used
 
 const person1 = {
@@ -457,4 +474,312 @@ const car1 = new car("audi", 2019, "red");
 console.log(car1);
 car1.drive();
 
-//TODO:Reprendre a la parti class  https://youtu.be/lfmg-EJ8gm4?t=19108
+// class = (ES6 feature) provide a more structured and cleaner way to work with objects compared to traditional 
+//       constructors to traditional constructor function ex. static keyword, encapsulation, inheritance
+
+class Product {
+    constructor(name, price) {
+        this.name = name;
+        this.price = price;
+    }
+    displayProduct() {
+            console.log(`${this.name} : ${this.price.toFixed(2)}€`);
+        }
+
+        calculateTotale(salesTax){
+            return this.price + (this.price * salesTax);
+        }
+}
+
+const salesTax = 0.15;
+const product1 = new Product("Pixel Pro 8", 1000);
+
+product1.displayProduct();
+const Total = product1.calculateTotale(salesTax);
+console.log(Total)
+// product1 est une class du type de Product et qui prend en parametre de son constructor "Pixel Pro 8" et 1000€"
+    // il est possible d'appeler une fonction de class a l'extérieur de la classe si on l'utilise avec un objet créer avec la class dans la quel la fonction est
+
+//-------------------------------
+
+// static = keyword that defines properties or methods that belong to a class itself rather thant the objects created from that class (class owns anythings static, not the objects)
+
+class MathUtil {
+    static PI = 3.1415926535897932;
+    static diameter(radius) {
+        return radius * 2;
+    }
+    static circumference(radius) {
+        return 2 * this.PI * Math.PI; 
+    }
+}
+
+console.log(MathUtil.diameter(5));
+
+
+console.log("----------------------------");
+//-------------------------------
+
+
+// inheritance = allows a new class to inherit properties and methods from an existing class (parents -> child)
+//      help with code reusability
+
+class Animal {
+    isCute = true;
+
+    alive(state) {
+        console.log(`this ${this.name} is ${state}`);
+    }
+
+    eat(food, type) {
+        // console.log(`this ${this.name}` + `is eating ${food}`);
+        this.isVegan = console.log(`this ${this.name} ` + `is eating ${food} and he ` + `is ${type}`)         
+    }
+
+    sleep() {
+        console.log(`this ${this.name} is sleeping`);
+    }
+
+}
+
+
+
+class Rabbit extends Animal {
+//class will be the child of animal and inherit all his properties and methods
+    name = "rabbit";
+}
+
+
+class Fish extends Animal {
+//class will be the child of animal and inherit all his properties and methods
+    name = "fish";
+
+    swim() {
+        console.log(`this ${this.name} is swimming`);	
+    }
+}
+
+class Hawk extends Animal {
+//class will be the child of animal and inherit all his properties and methods
+    name = "hawk";
+}
+
+const rabbit = new Rabbit();
+const hawk = new Hawk();
+const fish = new Fish();
+
+rabbit.eat("carrot", "vegetarian")
+
+// console.log(rabbit.isVegan); // ! UNDEFINED CAUSE CONSOLE.LOG A FUNCTION VAR WITH NO VALUE
+
+fish.eat('algae', 'not vegan');
+fish.swim();
+fish.sleep();
+
+
+console.log("----------------------------");
+//-------------------------------
+
+
+// super = allow to call a parent class method from a child class
+// super() = call the parent class method
+// super.method() = call the parent class method
+
+
+class Manga {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    power(nbr) {
+        console.log(`${this.name} has ${nbr} power`);
+    }
+}
+
+class Goku extends Manga {
+
+    constructor(name, age, manga) {
+        super(name, age);
+        this.manga = manga;
+    }
+}
+
+class Luffy extends Manga {
+    constructor(name, age, manga) {
+        super(name, age);
+        this.manga = manga; 
+    }
+}
+
+class Ichigo extends Manga {
+    constructor(name, age, manga) {
+        super(name, age, manga);
+        this.manga = manga; // ! first value of ichigo. even before the super call 
+    }
+}
+
+const ichigo = new Ichigo("Bleach", 21, "Ichigo");
+
+console.log(ichigo.name);
+console.log(ichigo.age);
+console.log(ichigo.manga);
+
+console.log("----------------------------");
+//-------------------------------
+
+// * getter = special method to makes a property readable
+// * setter = special method to makes a property writable, set is useed to validate a property given in entry 
+
+class rectangle{
+
+    constructor(width, height) {
+            this.width = width;
+            this.height = height;
+    }
+    set width(newWidth) { // ! variable is 'set' so can't be read so a console.log will return <undefined>
+        if(newWidth > 0) {
+            this._width = newWidth; // ! using _var tel to other dev to know that this is a private proprietary so they should not touch it at all
+        } else {
+            console.error("width must be a positive number");
+        }
+    }
+
+    set height(newHeight) {
+        if(newHeight > 0) {
+            this._height = newHeight; // ! using _var tel to other dev to know that this is a private proprietary so they should not touch it at all
+        } else {
+            console.error("height must be a positive number");
+        }
+    }
+
+    get width() {
+        return this._width;
+    }
+
+    get height() {
+        return this._height;
+    }
+
+}
+
+const rect1 = new rectangle(-1000, "pizza");
+const rect2 = new rectangle(1000, 900);
+console.log(rect2.width);
+console.log(rect2.height);
+
+
+
+class Person{
+    constructor(firstName, lastName, age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+
+    set firstName(newFirstName) {
+        if(typeof newFirstName ==='string' && newFirstName.length > 2) {
+            this._firstName = newFirstName; // ! if there is not the _ between the . and the var name, that will infinity loop
+        } else {
+            console.error('Please enter your first name');
+        }
+    }
+
+    set lastName(newlastName) {
+        if( typeof newlastName ==='string' && newlastName.length > 2) {
+            this._lastName = newlastName;
+        } else {
+            console.error('Please enter your lastname');
+        }
+    }
+
+    set age(newAge) {
+        if( age <= 18 && age >= 120) {
+            console.error('You have nothing to do on this site');
+        } else {
+            this._age = newAge;
+        }
+    }
+
+    get firstName() {
+        return this._firstName;
+    }
+    
+    get lastName() {
+        return this._lastName;
+    }
+    
+    get age() {
+        return this._age;
+    }
+
+}
+
+const peoples = new Person("hidekashi", "lawliet", 21);
+console.log(peoples.firstName);
+console.log(peoples.lastName);
+console.log(peoples.age);
+
+console.log("----------------------------");
+//-------------------------------
+
+
+
+// * array of object because why not
+
+const fruit = [
+    {name: "apple", price: 10},
+    {name: "banana", price: 20},
+    {name: "orange", price: 30},
+    {name: "grape", price: 40},
+    {name: "mango", price: 50}
+];
+
+console.log(fruit[0].name);
+console.log(fruit[0].price);
+
+console.log(fruit[4].name);
+console.log(fruit[4].price);
+
+fruit.push({name: "pineapple", price: 60});
+
+console.log(fruit[5].name);
+console.log(fruit[5].price);
+
+
+// fruit.pop(); // * remove element
+// fruit.splice(1,2); // * remove the element fruit[1] and fruit[2]
+
+
+fruit.forEach(Fruit => console.log(Fruit.name)); 
+
+
+console.log("----------------------------");
+//-------------------------------
+
+
+// * shuffle an array
+
+const card = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+
+// ! FISHER-YAKES algorithm
+
+shuffle(card);
+
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const random = Math.floor(Math.random() * (i + 1));
+        [array[i], array[random]] = [array[random], array[i]]; // * swap the element of the array between i and random
+    }
+}
+
+console.log(card);
+
+console.log("----------------------------");
+//-------------------------------
+
+// * Date objects   Date(year, month, day, hours, minutes, seconds, millisecondsa)
+
+let date = new Date();
+
+console.log(date);

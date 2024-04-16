@@ -20,10 +20,10 @@ function convertTemp() {
 }
 
 function convertFarToCel(number) {
-    number = (number * 9/5) +32
+    number = ((number * 9/5) +32).toFixed(2);
     tempBox.innerHTML = number;
 }
 function convertCelToFar(number) {
-    number = (number - 32) * 5/9;
+    number = ((number - 32) * 5/9).toFixed(2);
     tempBox.innerHTML = number;
 }

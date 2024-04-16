@@ -3,15 +3,14 @@ body {
     justify-content: center;
     align-items: flex-start;
     height: 100vh;
-    margin: 0;
     background-attachment: fixed;
+    margin: 0;
     font-family: Arial, sans-serif;
     background: rgb(253,255,0);
     background: -moz-linear-gradient(0deg, rgba(253,255,0,1) 0%, rgba(9,255,0,1) 25%, rgba(0,92,255,1) 75%, rgba(8,38,79,1) 100%);
     background: -webkit-linear-gradient(0deg, rgba(253,255,0,1) 0%, rgba(9,255,0,1) 25%, rgba(0,92,255,1) 75%, rgba(8,38,79,1) 100%);
     background: linear-gradient(0deg, rgba(253,255,0,1) 0%, rgba(9,255,0,1) 25%, rgba(0,92,255,1) 75%, rgba(8,38,79,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fdff00",endColorstr="#08264f",GradientType=1); 
-    background-position: fixed;
+    /* filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fdff00",endColorstr="#08264f",GradientType=1);  */
 }
 
 

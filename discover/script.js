@@ -13,7 +13,6 @@ todo Mark commment todo
 */
 
 
-
 // ! ---- LES FONCTIONS -----
 function NameOfFunction(name, age) {
     console.log(`Happy Birthday ${name}! You are ${age} years old`);
@@ -41,7 +40,6 @@ console.log(IsValidEmail("johngmail.com"));
 
 
 // display the name enter in the txt box
-const doc = document.getElementById("body");
 let pseudo = document.querySelector(".pseudo");
 let username = document.querySelector(".username");
 let count = document.querySelector(".count");
@@ -57,7 +55,7 @@ function display() {
         temp = username;
         username = input.value;
         if (username === temp) {
-            alert("change your username");
+            alert("change your username");qsq
         }
         console.log(input.value);
         pseudo.innerHTML = input.value; 
@@ -274,7 +272,7 @@ console.log(username3);
 
 // while loop / for loop
 
-// let int = 0;
+let int = 0;
 
 // while (int < 11) {
 //     console.log(int);
@@ -286,14 +284,11 @@ for (int = 0; int <= 10; int += 1) {
 }
 
 // variable scope 
-// a declared variable as eather a local or a global scope
+// a declared variable as ether a local or a global scope
 // if it's declared in a global scope else it's a local scope
 function test1() {
     const localVar =  0;
     console.log(localVar);
-}
-function test1() {
-    console.log(a);
 }
 
 // ------------------
@@ -374,9 +369,9 @@ function GB() {
 
 let numbers = [1, 2, 3, 4, 5, 6]
 
-numbers.forEach(display);
+numbers.forEach(display0);
 
-function display(number) {
+function display0(number) {
     console.log(number);
 }
 
@@ -786,3 +781,249 @@ let year = date.getFullYear();
 
 console.log(date);
 console.log(year);
+
+
+console.log("----------------------------");
+//-------------------------------
+
+
+
+// * closure = A function defined inside another function,
+// * the inner function has access to the variables and scope of the outer function
+// * Allow for private variables and state maintenance
+// * Used frequently in JS frameworks: React, Vue, Angular
+
+function outer() {
+    let message = "Hello World!";
+
+    function inner() {
+        console.log(message);
+    }
+// * anything inside the inner function is accessible from the outer function BUT if it's not called inside the OUTER function it will not be usedk
+// * and the inner has access to the all variable declared in outer
+    inner();
+}
+
+function increment() {
+    let count = 0;
+    
+    function innerIncrement() {
+        count += 1;
+        console.log`number: ${count}`;
+    }
+    innerIncrement();
+    innerIncrement();
+    innerIncrement();
+    innerIncrement();
+}
+
+// * by declaring variable inside a function, made the code safer
+
+console.log("----------------------------");
+
+let score = 0;
+
+function incrementScore(points) {
+    score += points;
+    console.log(`+ ${points} points`);
+}
+
+function decreaseScore(points) {
+    score -= points;
+    console.log(`- ${points} points`);
+}
+
+function getScore() {
+
+    return score;
+}
+
+incrementScore(10);
+decreaseScore(5);
+console.log(`the finals score is ${getScore()} points`);
+
+// ! ↑ note safe because score is declared outsiede, || safer way ↓ 
+
+console.log("----------------------------");
+
+
+function game() {
+    let score = 0;
+
+    function incrementScore(points) {
+        score += points;
+        console.log(`+ ${points} points`);
+    }
+
+    function decreaseScore(points) {
+        score -= points;
+        console.log(`- ${points} points`);
+    }
+
+    function getScore() {
+
+        return score;
+    }
+    return {incrementScore, decreaseScore, getScore};
+}
+
+const GAME = game();
+
+GAME.incrementScore(10);
+GAME.decreaseScore(5);
+
+console.log(`the finals score is ${GAME.getScore()} points`);
+
+console.log("----------------------------");
+//-------------------------------
+
+// * ES6 module =   an external file that contains reusable code that can be imported into other files. Write reusable code for many different projects.
+// * Can contain variable, classes, function ... and more
+// * Introduced as part  of ECMAScript 2015 update
+
+// *  look the  math.js file for an example
+
+import {PI, getCircumference, getArea, getVolume} from './math.js';
+
+console.log(PI);
+console.log(getCircumference(10).toFixed(2));
+console.log(getArea(10).toFixed(2));
+console.log(getVolume(10).toFixed(2));
+
+console.log("----------------------------");
+//-------------------------------
+
+// * synchronuous = execute line by line consecutively in a sequential order, code that wait the previous one to finish before execute the next one
+// * asynchronous = execute line by line in parallel, oposite of synchronous
+
+// * setTimeout is one of the function that can do asynchronous
+
+function asynch1(callback) {
+    setTimeout(() => { console.log("asynchronous0")
+                    callback()}, 10000);
+}
+
+function synch1() {
+    console.log("synchronous0");
+    console.log("synchronous1");
+    console.log("synchronous2");
+    console.log("----------------------------");
+}
+
+asynch1(synch1);  // * by doing like that i guaranty the sync1 function to execute after async1 function
+
+//-------------------------------
+
+// * ERROR = an object that is created to represent a problem that occur often with user input or establishing a connection
+// * try { } = Encloses code that might potentially cause an error
+// * catch { } = catch and handle any throw Errors from the try { }
+// * finally { } = always executes. Used mostly for clean up ex: close files, close connections, release ressources
+
+try {
+    console.log(undefinedVar);
+} catch (error) {
+    console.error(error);
+}
+console.log("You have reached the end of the script");
+
+console.log("----------------------------");
+//-------------------------------
+
+
+// * DOM = DOCUMENT OBJECT MODEL
+// * Object { } that reprensents the page you see in the web browser and provides you with an API top interact with it
+
+
+document.title = "red";
+
+console.log("----------------------------");
+
+// * DOM navigation = the process of navigating through the structure of an HTML document using JS
+
+// * firstElementChild
+// * lastElementChild
+// * previousElementSibling
+// * nextElementSibling
+// * parentElement
+// * children
+
+
+
+//-------------------------------
+
+// * Element selector
+// * 1. document.querySelector("class")             // Return an ELEMENT or NULL
+// * 2. document.getElementById("id")               // Return an ELEMENT or NULL
+// * 3. document.querySelectorAll("element")        // NODELIST
+// * 4. document.getElementsByClassName("class")    // HTML COLLECTION
+// * 5. document.getElementsByTagName("tag")        // HTML COLLECTION
+
+
+//-------------------------------
+console.log("----------------------------");
+
+
+// * ADD and change HTML element
+
+// *    STEP 1 CREATE THE ELEMENT
+const newH1 = document.createElement("h1");
+
+// *    STEP 2 ADD ATTRIBUTES/PROPERTIES
+newH1.id = "myH1"
+newH1.style.color = "white";
+newH1.textContent = "I like pizza!"
+
+
+// *    STEP 3 APPEND ELEMENT TO DOM
+// document.body.append(newH1)
+// document.body.prepend(newH1)
+document.getElementById("box1").append(newH1)
+
+
+// *    STEP 4 REMOVE HTML ELEMENT 
+
+
+//-------------------------------
+console.log("----------------------------");
+
+// * mouse event
+
+// * eventListener = listen for specific events to create interactive web pages,
+// * events: click, mouseover, mouseout
+// * addEventListener(event, callback or arrow function or anonymous function)
+
+const box2 = document.getElementById("box2");
+
+box2.addEventListener("click", function(event) {
+        console.log(event);
+    event.target.style.backgroundColor = "black";
+    event.target.textContent = "I like pizza!";
+});
+
+box2.addEventListener("mouseover", function(event) {
+    event.target.style.backgroundColor = "white";
+});
+
+box2.addEventListener("mouseout", function(event) {
+    event.target.style.backgroundColor = "";
+});
+
+const fakeButton = document.getElementById("box4");
+
+fakeButton.addEventListener("mouseover", function(event) {
+    document.title = "";
+});fakeButton.addEventListener("mouseout", function(event) {
+    document.title = "PROUT";
+});
+
+window.onload = function() {
+
+    var pageTitle = document.title;
+    var attentionMessage = 'Come Back!';
+    
+    document.addEventListener('visibilitychange', function(e) {
+      console.log(document.hidden);
+      document.title = document.hidden?  `${attentionMessage} \u{1F622}` : pageTitle;  
+    });
+  
+  };

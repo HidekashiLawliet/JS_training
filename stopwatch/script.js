@@ -45,3 +45,4 @@ function update() {
 
     timerDisplay.innerHTML = `${hours}:${minutes}:${seconds}:${milliseconds}`;
 }
+

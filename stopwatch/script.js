@@ -12,6 +12,8 @@ function start() {
         startTime = Date.now() - elapsedTime;
         timer = setInterval(update, 10);
         isRunning = true;
+    } else {
+        console.error('Timer is already running');
     }
 }
 
@@ -19,6 +21,8 @@ function stop() {
     if (isRunning) {
         clearInterval(timer);
         isRunning = false;
+    } else {
+        console.error('Timer is not running');
     }
 }
 

@@ -1017,13 +1017,64 @@ fakeButton.addEventListener("mouseover", function(event) {
 });
 
 window.onload = function() {
-
     var pageTitle = document.title;
     var attentionMessage = 'Come Back!';
     
     document.addEventListener('visibilitychange', function(e) {
-      console.log(document.hidden);
-      document.title = document.hidden?  `${attentionMessage} \u{1F622}` : pageTitle;  
+        console.log(document.hidden);
+        document.title = document.hidden?  `${attentionMessage} \u{1F622}` : pageTitle;  
     });
-  
-  };
+};
+
+
+// * KEY EVENTS
+
+document.addEventListener("keydown", function(event) {
+    console.log(`key down: ${event.key}`);
+});
+document.addEventListener("keyup", function(event) {
+    console.log(`key up: ${event.key}`);
+});
+
+const penguin = document.querySelector(".Penguin");
+const movePix = 10 ;
+let x = 0;
+let y = 0;
+
+document.addEventListener("keydown", function(event) {
+
+    // if (event.key.startsWith("Arrow")) {
+    //     switch(event.key) {
+    //         case "ArrowUp":
+    //             y -= movePix;
+    //             break;
+    //         case "ArrowDown":
+    //             y += movePix;
+    //             break;
+    //         case "ArrowLeft":
+    //             x -= movePix;
+    //             break;
+    //         case "ArrowRight":
+    //             x += movePix;
+    //             break;
+    //     }
+
+    if (event.key === "z" || event.key === "s" || event.key === "q" || event.key === "d") { 
+        switch(event.key) {
+            case "z":
+                y -= movePix;
+                break;
+            case "s":
+                y += movePix;
+                break;
+            case "q":
+                x -= movePix;
+                break;
+            case "d":
+                x += movePix;
+                break;
+        }
+
+    }
+    penguin.style.transform = `translate(${x}px, ${y}px)`;
+});

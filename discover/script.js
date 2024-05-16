@@ -55,7 +55,7 @@ function display() {
         temp = username;
         username = input.value;
         if (username === temp) {
-            alert("change your username");qsq
+            alert("change your username");
         }
         console.log(input.value);
         pseudo.innerHTML = input.value; 
